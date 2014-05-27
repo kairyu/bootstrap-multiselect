@@ -185,6 +185,12 @@
 
             },
             /**
+             * Triggered after change of the multiselect.
+             */
+            afterChange: function() {
+
+            },
+            /**
              * Triggered when the dropdown is shown.
              * 
              * @param {jQuery} event
@@ -239,6 +245,11 @@
          */
         buildContainer: function() {
             this.$container = $(this.options.buttonContainer);
+            if (this.options.buttonWidth && this.options.buttonWidth !== 'auto') {
+                this.$container.css({
+                    'width' : this.options.buttonWidth
+                });
+            }
             this.$container.on('show.bs.dropdown', this.options.onDropdownShow);
             this.$container.on('hide.bs.dropdown', this.options.onDropdownHide);
         },
